@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 
-	"github.com/sirijagadeesh/simplerestserver/api"
+	"github.com/sirijagadeesh/simplerestserver/rest"
 )
 
 func main() {
@@ -11,5 +11,5 @@ func main() {
 	flag.IntVar(&port, "listen-addr", 3008, "server listen port")
 	flag.Parse()
 
-	api.NewServer(port).Start()
+	rest.NewServer(port).Start()
 }
