@@ -57,7 +57,7 @@ func NewServer(port int) *Server {
 // Start will start HTTP Server.
 func (srv *Server) Start() {
 	go func() {
-		if err := srv.ListenAndServe(); err != nil && errors.Is(err, http.ErrServerClosed) {
+		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			slog.LogAttrs(context.TODO(), slog.LevelError,
 				"server stopped", slog.String("error", err.Error()))
 		}
